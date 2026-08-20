@@ -14,15 +14,16 @@
             text-align: center;
         }
         header {
-            padding: 60px 20px;
+            padding: 50px 20px;
             background: linear-gradient(135deg, #1f0b3a 0%, #0b0518 100%);
             border-bottom: 3px solid #5a259d;
         }
         .logo {
-            width: 120px;
-            height: 120px;
-            margin-bottom: 15px;
-            filter: drop-shadow(0px 4px 15px rgba(162, 89, 255, 0.6));
+            width: 140px;
+            height: 140px;
+            object-fit: contain;
+            margin-bottom: 10px;
+            filter: drop-shadow(0px 4px 15px rgba(162, 89, 255, 0.5));
         }
         h1 {
             font-size: 3.5rem;
@@ -50,28 +51,28 @@
             transform: scale(1.03);
         }
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 40px auto;
             padding: 0 20px;
         }
         
-        /* Interactive Tabs Button Layout */
+        /* Interactive Nav Controls Layout */
         .tab-menu {
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
         .tab-btn {
             background-color: #140b24;
             border: 2px solid #2d164d;
             color: #bfa6df;
-            padding: 12px 30px;
+            padding: 14px 35px;
             font-size: 1.1rem;
             font-weight: bold;
             border-radius: 8px;
             cursor: pointer;
-            transition: 0.3s;
+            transition: 0.2s ease-in-out;
         }
         .tab-btn:hover {
             background-color: #251242;
@@ -82,32 +83,29 @@
             background-color: #a259ff;
             color: #fff;
             border-color: #a259ff;
-            box-shadow: 0 4px 15px rgba(162, 89, 255, 0.4);
+            box-shadow: 0 4px 15px rgba(162, 89, 255, 0.5);
         }
 
-        /* Tab Content Control */
+        /* Tab Content Panel States */
         .tab-content {
             display: none;
             background-color: #140b24;
             border: 1px solid #2d164d;
             border-radius: 12px;
-            padding: 40px;
+            padding: 40px 20px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-            animation: fadeIn 0.4s ease;
         }
+        
+        /* CSS Rule to enforce active display visibility overriding defaults */
         .tab-content.active {
-            display: block;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            display: block !important;
         }
 
-        /* Rebuilt Minecraft Crafting Grid Layouts */
+        /* Authentic Grid Rendering Layout styles */
         .recipe-showcase {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 25px;
             flex-wrap: wrap;
         }
         .recipe-card {
@@ -115,63 +113,79 @@
             border: 1px solid #3a1d66;
             border-radius: 10px;
             padding: 20px;
-            width: 260px;
+            width: 280px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
         .recipe-card h4 {
             margin: 0 0 15px 0;
             color: #d2a6ff;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
         .crafting-grid {
             display: grid;
-            grid-template-columns: repeat(3, 40px);
-            grid-template-rows: repeat(3, 40px);
+            grid-template-columns: repeat(3, 46px);
+            grid-template-rows: repeat(3, 46px);
             gap: 4px;
             background-color: #8f8f8f;
             padding: 6px;
-            border: 3px solid #3c3c3c;
-            border-radius: 4px;
+            border-top: 3px solid #3c3c3c;
+            border-left: 3px solid #3c3c3c;
+            border-bottom: 3px solid #dedede;
+            border-right: 3px solid #dedede;
+            border-radius: 2px;
             margin-bottom: 15px;
         }
         .cell {
             background-color: #8b8b8b;
-            border: 2px solid #373737;
+            border-top: 2px solid #373737;
+            border-left: 2px solid #373737;
+            border-bottom: 2px solid #ffffff;
+            border-right: 2px solid #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.5rem;
-            user-select: none;
+        }
+        .cell img, .output-slot img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            image-rendering: pixelated;
         }
         .output-arrow {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: #a259ff;
             margin: 5px 0;
+            line-height: 1;
         }
         .output-slot {
             background-color: #8b8b8b;
-            border: 3px solid #ffaa00;
-            width: 44px;
-            height: 44px;
+            border-top: 2px solid #373737;
+            border-left: 2px solid #373737;
+            border-bottom: 2px solid #ffffff;
+            border-right: 2px solid #ffffff;
+            width: 52px;
+            height: 52px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.6rem;
             position: relative;
+            box-shadow: inset 0 0 4px rgba(0,0,0,0.6);
         }
         .count-badge {
             position: absolute;
             bottom: 2px;
             right: 4px;
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: bold;
             color: #fff;
             text-shadow: 2px 2px 0px #000;
+            font-family: monospace;
         }
 
-        /* Utilities */
+        /* Community assets elements styles */
         .discord-btn {
             display: inline-block;
             background-color: #5865F2;
@@ -181,29 +195,29 @@
             border-radius: 8px;
             font-weight: bold;
             font-size: 1.3rem;
-            transition: 0.3s;
+            transition: 0.2s;
             box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
             margin-top: 15px;
         }
         .discord-btn:hover {
             background-color: #4752c4;
-            transform: translateY(-3px);
+            transform: translateY(-2px);
         }
         .player-list {
             list-style: none;
             padding: 0;
-            max-width: 400px;
+            max-width: 450px;
             margin: 0 auto;
-            text-align: left;
         }
         .player-list li {
-            padding: 12px 20px;
+            padding: 14px 20px;
             background: #0f071a;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             border-radius: 6px;
             border-left: 4px solid #a259ff;
             display: flex;
             justify-content: space-between;
+            font-size: 1.1rem;
         }
         .role-staff { color: #d2a6ff; font-weight: bold; }
         .role-player { color: #bfa6df; }
@@ -220,74 +234,45 @@
 <body>
 
     <header>
-        <!-- Embedded Server Logo Asset -->
+        <!-- Custom Purple Logo Asset -->
         <img src="image_YHrzGj.png" alt="Invictus Logo" class="logo">
         <h1>INVICTUS MC</h1>
-        <p style="color: #bfa6df; margin: 0;">Welcome to the Unconquered Community</p>
+        <p style="color: #bfa6df; margin: 0; font-size: 1.1rem;">Welcome to the Unconquered Community</p>
         <div class="server-ip" onclick="copyIP()">IP: 185.207.166.79:19006</div>
     </header>
 
     <div class="container">
         
-        <!-- Interactive Category Switcher Selection -->
+        <!-- Interactive Category Switch Navigation tabs -->
         <div class="tab-menu">
-            <button class="tab-btn active" onclick="openTab('recipes')">Custom Recipes</button>
-            <button class="tab-btn" onclick="openTab('discord')">Discord Server</button>
-            <button class="tab-btn" onclick="openTab('players')">Online Players</button>
+            <button class="tab-btn active" onclick="openTab(event, 'recipes')">Custom Recipes</button>
+            <button class="tab-btn" onclick="openTab(event, 'discord')">Discord Server</button>
+            <button class="tab-btn" onclick="openTab(event, 'players')">Active Roster</button>
         </div>
 
-        <!-- CATEGORY 1: CUSTOM RECIPES TAB -->
+        <!-- CHOICE 1: SPRITE-BASED CUSTOM RECIPES TAB PANEL -->
         <div id="recipes" class="tab-content active">
-            <h2 style="margin-top:0;">Server Crafting Directory</h2>
+            <h2 style="margin-top:0; color:#d2a6ff;">Custom Server Blueprints</h2>
             <div class="recipe-showcase">
                 
-                <!-- Recipe: Golden Apple -->
+                <!-- Blueprint: Custom Golden Apple layout configuration -->
                 <div class="recipe-card">
                     <h4>Golden Apple</h4>
                     <div class="crafting-grid">
-                        <div class="cell"></div><div class="cell">🪙</div><div class="cell"></div>
-                        <div class="cell">🪙</div><div class="cell">🍎</div><div class="cell">🪙</div>
-                        <div class="cell"></div><div class="cell">🪙</div><div class="cell"></div>
+                        <div class="cell"></div><div class="cell"><img src="https://minecraft.wiki" alt="Gold"></div><div class="cell"></div>
+                        <div class="cell"><img src="https://minecraft.wiki" alt="Gold"></div><div class="cell"><img src="https://minecraft.wiki" alt="Apple"></div><div class="cell"><img src="https://minecraft.wiki" alt="Gold"></div>
+                        <div class="cell"></div><div class="cell"><img src="https://minecraft.wiki" alt="Gold"></div><div class="cell"></div>
                     </div>
-                    <div class="output-arrow">⬇️</div>
-                    <div class="output-slot">🍏</div>
+                    <div class="output-arrow">🡫</div>
+                    <div class="output-slot"><img src="https://minecraft.wiki" alt="Golden Apple"></div>
                 </div>
 
-                <!-- Recipe: Cobweb x4 -->
+                <!-- Blueprint: Converting raw String directly into 4x Cobwebs -->
                 <div class="recipe-card">
-                    <h4>String to Cobweb</h4>
+                    <h4>String to Cobwebs</h4>
                     <div class="crafting-grid">
-                        <div class="cell"></div><div class="cell">🧵</div><div class="cell"></div>
+                        <div class="cell"></div><div class="cell"><img src="https://minecraft.wiki" alt="String"></div><div class="cell"></div>
                         <div class="cell"></div><div class="cell"></div><div class="cell"></div>
                         <div class="cell"></div><div class="cell"></div><div class="cell"></div>
                     </div>
-                    <div class="output-arrow">⬇️</div>
-                    <div class="output-slot">🕸️<span class="count-badge">4</span></div>
-                </div>
-
-                <!-- Recipe: Craftable Cobweb Layout -->
-                <div class="recipe-card">
-                    <h4>Craftable Cobweb</h4>
-                    <div class="crafting-grid">
-                        <div class="cell">🧵</div><div class="cell"></div><div class="cell">🧵</div>
-                        <div class="cell"></div><div class="cell">🧵</div><div class="cell"></div>
-                        <div class="cell">🧵</div><div class="cell"></div><div class="cell">🧵</div>
-                    </div>
-                    <div class="output-arrow">⬇️</div>
-                    <div class="output-slot">🕸️</div>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- CATEGORY 2: DISCORD LINK TAB -->
-        <div id="discord" class="tab-content">
-            <h2 style="margin-top:0;">Join the Voice & Chat Hub</h2>
-            <p style="color: #bfa6df; max-width: 600px; margin: 0 auto 25px auto;">
-                Connect to our community platform. Get announcements, report bugs, interact directly with server staff, and view daily patch updates.
-            </p>
-            <a href="https://discord.gg" target="_blank" class="discord-btn">Open Discord Link</a>
-        </div>
-
-        <!-- CATEGORY 3: ONLINE PLAYERS TAB -->
-        <div id="players" class="tab-content">
+                    <div class="output-arrow">🡫</div>
