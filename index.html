@@ -5,257 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invictus MC - Official Server Website</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0b0518;
-            color: #f1f1f1;
-            text-align: center;
-        }
-        header {
-            padding: 50px 20px;
-            background: linear-gradient(135deg, #1f0b3a 0%, #0b0518 100%);
-            border-bottom: 3px solid #5a259d;
-        }
-        .logo {
-            width: 140px;
-            height: 140px;
-            object-fit: contain;
-            margin-bottom: 10px;
-            filter: drop-shadow(0px 4px 15px rgba(162, 89, 255, 0.5));
-        }
-        h1 {
-            font-size: 3.5rem;
-            color: #d2a6ff;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            margin: 0 0 10px 0;
-            text-shadow: 0px 4px 10px rgba(162, 89, 255, 0.4);
-        }
-        .server-ip {
-            background-color: #1a0d30;
-            border: 2px dashed #a259ff;
-            display: inline-block;
-            padding: 12px 30px;
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: #fffb00;
-            border-radius: 8px;
-            margin-top: 15px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .server-ip:hover {
-            background-color: #2c1454;
-            transform: scale(1.03);
-        }
-        .container {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        
-        /* Interactive Nav Controls Layout */
-        .tab-menu {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 35px;
-        }
-        .tab-btn {
-            background-color: #140b24;
-            border: 2px solid #2d164d;
-            color: #bfa6df;
-            padding: 14px 35px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.2s ease-in-out;
-        }
-        .tab-btn:hover {
-            background-color: #251242;
-            color: #fff;
-            border-color: #a259ff;
-        }
-        .tab-btn.active {
-            background-color: #a259ff;
-            color: #fff;
-            border-color: #a259ff;
-            box-shadow: 0 4px 15px rgba(162, 89, 255, 0.5);
-        }
-
-        /* Tab Content Panel States */
-        .tab-content {
-            display: none;
-            background-color: #140b24;
-            border: 1px solid #2d164d;
-            border-radius: 12px;
-            padding: 40px 20px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-        }
-        
-        /* CSS Rule to enforce active display visibility overriding defaults */
-        .tab-content.active {
-            display: block !important;
-        }
-
-        /* Authentic Grid Rendering Layout styles */
-        .recipe-showcase {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
-        .recipe-card {
-            background: #0f071a;
-            border: 1px solid #3a1d66;
-            border-radius: 10px;
-            padding: 20px;
-            width: 280px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
-        .recipe-card h4 {
-            margin: 0 0 15px 0;
-            color: #d2a6ff;
-            font-size: 1.3rem;
-        }
-        .crafting-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 46px);
-            grid-template-rows: repeat(3, 46px);
-            gap: 4px;
-            background-color: #8f8f8f;
-            padding: 6px;
-            border-top: 3px solid #3c3c3c;
-            border-left: 3px solid #3c3c3c;
-            border-bottom: 3px solid #dedede;
-            border-right: 3px solid #dedede;
-            border-radius: 2px;
-            margin-bottom: 15px;
-        }
-        .cell {
-            background-color: #8b8b8b;
-            border-top: 2px solid #373737;
-            border-left: 2px solid #373737;
-            border-bottom: 2px solid #ffffff;
-            border-right: 2px solid #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .cell img, .output-slot img {
-            width: 32px;
-            height: 32px;
-            object-fit: contain;
-            image-rendering: pixelated;
-        }
-        .output-arrow {
-            font-size: 1.8rem;
-            color: #a259ff;
-            margin: 5px 0;
-            line-height: 1;
-        }
-        .output-slot {
-            background-color: #8b8b8b;
-            border-top: 2px solid #373737;
-            border-left: 2px solid #373737;
-            border-bottom: 2px solid #ffffff;
-            border-right: 2px solid #ffffff;
-            width: 52px;
-            height: 52px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            box-shadow: inset 0 0 4px rgba(0,0,0,0.6);
-        }
-        .count-badge {
-            position: absolute;
-            bottom: 2px;
-            right: 4px;
-            font-size: 1rem;
-            font-weight: bold;
-            color: #fff;
-            text-shadow: 2px 2px 0px #000;
-            font-family: monospace;
-        }
-
-        /* Community assets elements styles */
-        .discord-btn {
-            display: inline-block;
-            background-color: #5865F2;
-            color: white;
-            padding: 14px 40px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 1.3rem;
-            transition: 0.2s;
-            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
-            margin-top: 15px;
-        }
-        .discord-btn:hover {
-            background-color: #4752c4;
-            transform: translateY(-2px);
-        }
-        .player-list {
-            list-style: none;
-            padding: 0;
-            max-width: 450px;
-            margin: 0 auto;
-        }
-        .player-list li {
-            padding: 14px 20px;
-            background: #0f071a;
-            margin-bottom: 10px;
-            border-radius: 6px;
-            border-left: 4px solid #a259ff;
-            display: flex;
-            justify-content: space-between;
-            font-size: 1.1rem;
-        }
+        body { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0b0518; color: #f1f1f1; text-align: center; }
+        header { padding: 50px 20px; background: linear-gradient(135deg, #1f0b3a 0%, #0b0518 100%); border-bottom: 3px solid #5a259d; }
+        .logo { width: 140px; height: 140px; object-fit: contain; margin-bottom: 10px; filter: drop-shadow(0px 4px 15px rgba(162, 89, 255, 0.5)); }
+        h1 { font-size: 3.5rem; color: #d2a6ff; text-transform: uppercase; letter-spacing: 4px; margin: 0 0 10px 0; text-shadow: 0px 4px 10px rgba(162, 89, 255, 0.4); }
+        .server-ip { background-color: #1a0d30; border: 2px dashed #a259ff; display: inline-block; padding: 12px 30px; font-size: 1.4rem; font-weight: bold; color: #fffb00; border-radius: 8px; margin-top: 15px; cursor: pointer; transition: 0.3s; }
+        .server-ip:hover { background-color: #2c1454; transform: scale(1.03); }
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+        .tab-menu { display: flex; justify-content: center; gap: 15px; margin-bottom: 35px; }
+        .tab-btn { background-color: #140b24; border: 2px solid #2d164d; color: #bfa6df; padding: 14px 35px; font-size: 1.1rem; font-weight: bold; border-radius: 8px; cursor: pointer; transition: 0.2s ease-in-out; }
+        .tab-btn:hover { background-color: #251242; color: #fff; border-color: #a259ff; }
+        .tab-btn.active { background-color: #a259ff; color: #fff; border-color: #a259ff; box-shadow: 0 4px 15px rgba(162, 89, 255, 0.5); }
+        .tab-content { display: none; background-color: #140b24; border: 1px solid #2d164d; border-radius: 12px; padding: 40px 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
+        .tab-content.active { display: block !important; }
+        .recipe-showcase { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
+        .recipe-card { background: #0f071a; border: 1px solid #3a1d66; border-radius: 10px; padding: 20px; width: 280px; display: flex; flex-direction: column; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .recipe-card h4 { margin: 0 0 15px 0; color: #d2a6ff; font-size: 1.3rem; }
+        .crafting-grid { display: grid; grid-template-columns: repeat(3, 46px); grid-template-rows: repeat(3, 46px); gap: 4px; background-color: #8f8f8f; padding: 6px; border-top: 3px solid #3c3c3c; border-left: 3px solid #3c3c3c; border-bottom: 3px solid #dedede; border-right: 3px solid #dedede; border-radius: 2px; margin-bottom: 15px; }
+        .cell { background-color: #8b8b8b; border-top: 2px solid #373737; border-left: 2px solid #373737; border-bottom: 2px solid #ffffff; border-right: 2px solid #ffffff; display: flex; justify-content: center; align-items: center; }
+        .cell img, .output-slot img { width: 32px; height: 32px; object-fit: contain; image-rendering: pixelated; }
+        .output-arrow { font-size: 1.8rem; color: #a259ff; margin: 5px 0; line-height: 1; }
+        .output-slot { background-color: #8b8b8b; border-top: 2px solid #373737; border-left: 2px solid #373737; border-bottom: 2px solid #ffffff; border-right: 2px solid #ffffff; width: 52px; height: 52px; display: flex; justify-content: center; align-items: center; position: relative; box-shadow: inset 0 0 4px rgba(0,0,0,0.6); }
+        .count-badge { position: absolute; bottom: 2px; right: 4px; font-size: 1rem; font-weight: bold; color: #fff; text-shadow: 2px 2px 0px #000; font-family: monospace; }
+        .discord-btn { display: inline-block; background-color: #5865F2; color: white; padding: 14px 40px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 1.3rem; transition: 0.2s; box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4); margin-top: 15px; }
+        .discord-btn:hover { background-color: #4752c4; transform: translateY(-2px); }
+        .player-list { list-style: none; padding: 0; max-width: 450px; margin: 0 auto; }
+        .player-list li { padding: 14px 20px; background: #0f071a; margin-bottom: 10px; border-radius: 6px; border-left: 4px solid #a259ff; display: flex; justify-content: space-between; font-size: 1.1rem; }
         .role-staff { color: #d2a6ff; font-weight: bold; }
         .role-player { color: #bfa6df; }
-        
-        footer {
-            padding: 40px 20px;
-            color: #6a528d;
-            font-size: 0.9rem;
-            border-top: 1px solid #1f0b3a;
-            margin-top: 60px;
-        }
+        footer { padding: 40px 20px; color: #6a528d; font-size: 0.9rem; border-top: 1px solid #1f0b3a; margin-top: 60px; }
     </style>
 </head>
 <body>
-
     <header>
-        <!-- Custom Purple Logo Asset -->
         <img src="image_YHrzGj.png" alt="Invictus Logo" class="logo">
         <h1>INVICTUS MC</h1>
         <p style="color: #bfa6df; margin: 0; font-size: 1.1rem;">Welcome to the Unconquered Community</p>
         <div class="server-ip" onclick="copyIP()">IP: 185.207.166.79:19006</div>
     </header>
-
     <div class="container">
-        
-        <!-- Interactive Category Switch Navigation tabs -->
         <div class="tab-menu">
             <button class="tab-btn active" onclick="openTab(event, 'recipes')">Custom Recipes</button>
             <button class="tab-btn" onclick="openTab(event, 'discord')">Discord Server</button>
             <button class="tab-btn" onclick="openTab(event, 'players')">Active Roster</button>
         </div>
-
-        <!-- CHOICE 1: SPRITE-BASED CUSTOM RECIPES TAB PANEL -->
         <div id="recipes" class="tab-content active">
             <h2 style="margin-top:0; color:#d2a6ff;">Custom Server Blueprints</h2>
             <div class="recipe-showcase">
-                
-                <!-- Blueprint: Custom Golden Apple layout configuration -->
                 <div class="recipe-card">
                     <h4>Golden Apple</h4>
                     <div class="crafting-grid">
@@ -267,7 +63,6 @@
                     <div class="output-slot"><img src="https://minecraft.wiki" alt="Golden Apple"></div>
                 </div>
 
-                <!-- Blueprint: Converting raw String directly into 4x Cobwebs -->
                 <div class="recipe-card">
                     <h4>String to Cobwebs</h4>
                     <div class="crafting-grid">
@@ -276,3 +71,64 @@
                         <div class="cell"></div><div class="cell"></div><div class="cell"></div>
                     </div>
                     <div class="output-arrow">🡫</div>
+                    <div class="output-slot"><img src="https://minecraft.wiki" alt="Cobweb"><span class="count-badge">4</span></div>
+                </div>
+
+                <div class="recipe-card">
+                    <h4>Craftable Cobweb</h4>
+                    <div class="crafting-grid">
+                        <div class="cell"><img src="https://minecraft.wiki" alt="String"></div><div class="cell"></div><div class="cell"><img src="https://minecraft.wiki" alt="String"></div>
+                        <div class="cell"></div><div class="cell"><img src="https://minecraft.wiki" alt="String"></div><div class="cell"></div>
+                        <div class="cell"><img src="https://minecraft.wiki" alt="String"></div><div class="cell"></div><div class="cell"><img src="https://minecraft.wiki" alt="String"></div>
+                    </div>
+                    <div class="output-arrow">🡫</div>
+                    <div class="output-slot"><img src="https://minecraft.wiki" alt="Cobweb"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="discord" class="tab-content">
+            <h2 style="margin-top:0; color:#d2a6ff;">Join the Voice & Chat Hub</h2>
+            <p style="color: #bfa6df; max-width: 650px; margin: 0 auto 25px auto; font-size:1.05rem;">Connect to our community platform. Get announcements, report server bugs, interact directly with staff, and check daily patch logs.</p>
+            <a href="https://discord.gg" target="_blank" class="discord-btn">Open Discord Server Link</a>
+        </div>
+
+        <div id="players" class="tab-content">
+            <h2 style="margin-top:0; color:#d2a6ff;">Active Community Members</h2>
+            <p style="color: #bfa6df; margin-bottom: 25px;">Current active server managers and community players:</p>
+            <ul class="player-list">
+                <li><span>Server Owner</span> <span class="role-staff">Nyx0717</span></li>
+                <li><span>Moderator</span> <span class="role-staff">StaffMember</span></li>
+                <li><span>Survival Adventurer</span> <span class="role-player">Player_One</span></li>
+                <li><span>Survival Adventurer</span> <span class="role-player">MineCraftFan</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 Invictus MC. This website is not affiliated with Mojang Studios.
+    </footer>
+
+    <script>
+        function copyIP() {
+            navigator.clipboard.writeText("185.207.166.79:19006");
+            alert("Server IP copied to clipboard! Open Minecraft and paste it into your multiplayer server list.");
+        }
+        function openTab(evt, tabId) {
+            let contents = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < contents.length; i++) {
+                contents[i].style.display = 'none';
+                contents[i].classList.remove('active');
+            }
+            let buttons = document.getElementsByClassName('tab-btn');
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('active');
+            }
+            let targetPanel = document.getElementById(tabId);
+            targetPanel.style.display = 'block';
+            targetPanel.classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
