@@ -3,77 +3,291 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INVICTUS MC - Server Hub</title>
+    <title>Invictus MC - Official Server Website</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #121214; color: #e2e8f0; margin: 0; padding: 20px; line-height: 1.6; }
-        .container { max-width: 900px; margin: 20px auto; background: #1e1e24; padding: 30px; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.5); border: 1px solid #2d2d34; }
-        header { text-align: center; margin-bottom: 40px; }
-        h1 { color: #a855f7; margin-bottom: 5px; font-size: 2.5rem; }
-        h2 { color: #3b82f6; border-bottom: 2px solid #2d2d34; padding-bottom: 8px; margin-top: 30px; }
-        h3 { color: #f43f5e; margin-top: 0; }
-        .ip-box { background: #0f172a; padding: 20px; border-radius: 8px; font-family: 'Courier New', Courier, monospace; font-size: 1.4rem; text-align: center; border: 2px dashed #3b82f6; margin: 20px 0; color: #38bdf8; cursor: pointer; transition: 0.2s; }
-        .ip-box:hover { background: #1e293b; border-color: #60a5fa; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .card { background: #18181c; padding: 20px; border-radius: 8px; border: 1px solid #2d2d34; }
-        .btn { display: inline-block; background: #5865F2; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 15px; text-align: center; transition: 0.2s; }
-        .btn:hover { background: #4752c4; transform: translateY(-2px); }
-        ul { padding-left: 20px; margin: 0; }
-        li { margin-bottom: 10px; }
-        footer { text-align: center; margin-top: 40px; color: #64748b; font-size: 0.9rem; }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0b0518;
+            color: #f1f1f1;
+            text-align: center;
+        }
+        header {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #1f0b3a 0%, #0b0518 100%);
+            border-bottom: 3px solid #5a259d;
+        }
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0px 4px 15px rgba(162, 89, 255, 0.6));
+        }
+        h1 {
+            font-size: 3.5rem;
+            color: #d2a6ff;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin: 0 0 10px 0;
+            text-shadow: 0px 4px 10px rgba(162, 89, 255, 0.4);
+        }
+        .server-ip {
+            background-color: #1a0d30;
+            border: 2px dashed #a259ff;
+            display: inline-block;
+            padding: 12px 30px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #fffb00;
+            border-radius: 8px;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .server-ip:hover {
+            background-color: #2c1454;
+            transform: scale(1.03);
+        }
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        /* Interactive Tabs Button Layout */
+        .tab-menu {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .tab-btn {
+            background-color: #140b24;
+            border: 2px solid #2d164d;
+            color: #bfa6df;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .tab-btn:hover {
+            background-color: #251242;
+            color: #fff;
+            border-color: #a259ff;
+        }
+        .tab-btn.active {
+            background-color: #a259ff;
+            color: #fff;
+            border-color: #a259ff;
+            box-shadow: 0 4px 15px rgba(162, 89, 255, 0.4);
+        }
+
+        /* Tab Content Control */
+        .tab-content {
+            display: none;
+            background-color: #140b24;
+            border: 1px solid #2d164d;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            animation: fadeIn 0.4s ease;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Rebuilt Minecraft Crafting Grid Layouts */
+        .recipe-showcase {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .recipe-card {
+            background: #0f071a;
+            border: 1px solid #3a1d66;
+            border-radius: 10px;
+            padding: 20px;
+            width: 260px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .recipe-card h4 {
+            margin: 0 0 15px 0;
+            color: #d2a6ff;
+            font-size: 1.2rem;
+        }
+        .crafting-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 40px);
+            grid-template-rows: repeat(3, 40px);
+            gap: 4px;
+            background-color: #8f8f8f;
+            padding: 6px;
+            border: 3px solid #3c3c3c;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        .cell {
+            background-color: #8b8b8b;
+            border: 2px solid #373737;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            user-select: none;
+        }
+        .output-arrow {
+            font-size: 1.5rem;
+            color: #a259ff;
+            margin: 5px 0;
+        }
+        .output-slot {
+            background-color: #8b8b8b;
+            border: 3px solid #ffaa00;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.6rem;
+            position: relative;
+        }
+        .count-badge {
+            position: absolute;
+            bottom: 2px;
+            right: 4px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 0px #000;
+        }
+
+        /* Utilities */
+        .discord-btn {
+            display: inline-block;
+            background-color: #5865F2;
+            color: white;
+            padding: 14px 40px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.3rem;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
+            margin-top: 15px;
+        }
+        .discord-btn:hover {
+            background-color: #4752c4;
+            transform: translateY(-3px);
+        }
+        .player-list {
+            list-style: none;
+            padding: 0;
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .player-list li {
+            padding: 12px 20px;
+            background: #0f071a;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            border-left: 4px solid #a259ff;
+            display: flex;
+            justify-content: space-between;
+        }
+        .role-staff { color: #d2a6ff; font-weight: bold; }
+        .role-player { color: #bfa6df; }
+        
+        footer {
+            padding: 40px 20px;
+            color: #6a528d;
+            font-size: 0.9rem;
+            border-top: 1px solid #1f0b3a;
+            margin-top: 60px;
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
     <header>
+        <!-- Embedded Server Logo Asset -->
+        <img src="image_YHrzGj.png" alt="Invictus Logo" class="logo">
         <h1>INVICTUS MC</h1>
-        <p style="color: #94a3b8;">Welcome to the Unconquered Community!</p>
+        <p style="color: #bfa6df; margin: 0;">Welcome to the Unconquered Community</p>
+        <div class="server-ip" onclick="copyIP()">IP: 185.207.166.79:19006</div>
     </header>
 
-    <!-- SERVER IP SECTION -->
-    <h2>Server Connection</h2>
-    <p>Click the box below to copy the server address and paste it into your Minecraft client:</p>
-    <div class="ip-box" onclick="copyIP()">185.207.166.79:19006</div>
-
-    <div class="grid">
-        <!-- RECIPES SECTION -->
-        <div class="card">
-            <h2>Custom Recipes</h2>
-            <ul>
-                <li><strong>God Apple:</strong> 8 Gold Blocks + 1 Apple</li>
-                <li><strong>Custom Tool:</strong> 2 Blaze Rods + 3 Diamonds</li>
-                <li><strong>Spawners:</strong> 8 Iron Bars + 1 Nether Star</li>
-            </ul>
+    <div class="container">
+        
+        <!-- Interactive Category Switcher Selection -->
+        <div class="tab-menu">
+            <button class="tab-btn active" onclick="openTab('recipes')">Custom Recipes</button>
+            <button class="tab-btn" onclick="openTab('discord')">Discord Server</button>
+            <button class="tab-btn" onclick="openTab('players')">Online Players</button>
         </div>
 
-        <!-- PLAYERS SECTION -->
-        <div class="card">
-            <h2>Active Players & Staff</h2>
-            <ul>
-                <li><strong>Owner:</strong> Nyx0717</li>
-                <li><strong>Player:</strong> CommunityUser</li>
-            </ul>
+        <!-- CATEGORY 1: CUSTOM RECIPES TAB -->
+        <div id="recipes" class="tab-content active">
+            <h2 style="margin-top:0;">Server Crafting Directory</h2>
+            <div class="recipe-showcase">
+                
+                <!-- Recipe: Golden Apple -->
+                <div class="recipe-card">
+                    <h4>Golden Apple</h4>
+                    <div class="crafting-grid">
+                        <div class="cell"></div><div class="cell">🪙</div><div class="cell"></div>
+                        <div class="cell">🪙</div><div class="cell">🍎</div><div class="cell">🪙</div>
+                        <div class="cell"></div><div class="cell">🪙</div><div class="cell"></div>
+                    </div>
+                    <div class="output-arrow">⬇️</div>
+                    <div class="output-slot">🍏</div>
+                </div>
+
+                <!-- Recipe: Cobweb x4 -->
+                <div class="recipe-card">
+                    <h4>String to Cobweb</h4>
+                    <div class="crafting-grid">
+                        <div class="cell"></div><div class="cell">🧵</div><div class="cell"></div>
+                        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                    </div>
+                    <div class="output-arrow">⬇️</div>
+                    <div class="output-slot">🕸️<span class="count-badge">4</span></div>
+                </div>
+
+                <!-- Recipe: Craftable Cobweb Layout -->
+                <div class="recipe-card">
+                    <h4>Craftable Cobweb</h4>
+                    <div class="crafting-grid">
+                        <div class="cell">🧵</div><div class="cell"></div><div class="cell">🧵</div>
+                        <div class="cell"></div><div class="cell">🧵</div><div class="cell"></div>
+                        <div class="cell">🧵</div><div class="cell"></div><div class="cell">🧵</div>
+                    </div>
+                    <div class="output-arrow">⬇️</div>
+                    <div class="output-slot">🕸️</div>
+                </div>
+
+            </div>
         </div>
-    </div>
 
-    <!-- DISCORD LINK SECTION -->
-    <div class="card" style="margin-top: 20px; text-align: center;">
-        <h2>Join Our Discord</h2>
-        <p>Connect with the rest of the community, view patch notes, and chat with staff!</p>
-        <a href="https://discord.gg/MBVqtBbSt7" target="_blank" class="btn">Join Discord Server</a>
-    </div>
+        <!-- CATEGORY 2: DISCORD LINK TAB -->
+        <div id="discord" class="tab-content">
+            <h2 style="margin-top:0;">Join the Voice & Chat Hub</h2>
+            <p style="color: #bfa6df; max-width: 600px; margin: 0 auto 25px auto;">
+                Connect to our community platform. Get announcements, report bugs, interact directly with server staff, and view daily patch updates.
+            </p>
+            <a href="https://discord.gg" target="_blank" class="discord-btn">Open Discord Link</a>
+        </div>
 
-    <footer>
-        &copy; 2026 Invictus MC. This website is not affiliated with Mojang Studios.
-    </footer>
-</div>
-
-<script>
-function copyIP() {
-    navigator.clipboard.writeText("185.207.166.79:19006");
-    alert("Server IP copied to clipboard! Open Minecraft and paste it.");
-}
-</script>
-
-</body>
-</html>
+        <!-- CATEGORY 3: ONLINE PLAYERS TAB -->
+        <div id="players" class="tab-content">
