@@ -3,120 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invictus MC - Official Server Website</title>
+    <title>INVICTUS MC - Server Hub</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0b0518;
-            color: #f1f1f1;
-            text-align: center;
-        }
-        header {
-            padding: 100px 20px;
-            background: linear-gradient(135deg, #1f0b3a 0%, #0b0518 100%);
-            border-bottom: 3px solid #5a259d;
-        }
-        h1 {
-            font-size: 4rem;
-            color: #d2a6ff;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            margin: 0 0 10px 0;
-            text-shadow: 0px 4px 10px rgba(162, 89, 255, 0.4);
-        }
-        .server-ip {
-            background-color: #1a0d30;
-            border: 2px dashed #a259ff;
-            display: inline-block;
-            padding: 12px 30px;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #ffd700;
-            border-radius: 8px;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: 0.3s;
-        }
-        .server-ip:hover {
-            background-color: #a259ff;
-            color: #fff;
-            transform: scale(1.05);
-        }
-        .container {
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 0 20px;
-        }
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .card {
-            background-color: #160c28;
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid #32195a;
-            transition: 0.3s;
-        }
-        .card:hover {
-            border-color: #a259ff;
-            transform: translateY(-5px);
-        }
-        .card h3 {
-            color: #d2a6ff;
-            margin-top: 0;
-        }
-        footer {
-            margin-top: 100px;
-            padding: 30px;
-            background-color: #06020e;
-            color: #5d5370;
-            font-size: 0.9rem;
-        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #121214; color: #e2e8f0; margin: 0; padding: 20px; line-height: 1.6; }
+        .container { max-width: 900px; margin: 20px auto; background: #1e1e24; padding: 30px; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.5); border: 1px solid #2d2d34; }
+        header { text-align: center; margin-bottom: 40px; }
+        h1 { color: #a855f7; margin-bottom: 5px; font-size: 2.5rem; }
+        h2 { color: #3b82f6; border-bottom: 2px solid #2d2d34; padding-bottom: 8px; margin-top: 30px; }
+        h3 { color: #f43f5e; margin-top: 0; }
+        .ip-box { background: #0f172a; padding: 20px; border-radius: 8px; font-family: 'Courier New', Courier, monospace; font-size: 1.4rem; text-align: center; border: 2px dashed #3b82f6; margin: 20px 0; color: #38bdf8; cursor: pointer; transition: 0.2s; }
+        .ip-box:hover { background: #1e293b; border-color: #60a5fa; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .card { background: #18181c; padding: 20px; border-radius: 8px; border: 1px solid #2d2d34; }
+        .btn { display: inline-block; background: #5865F2; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 15px; text-align: center; transition: 0.2s; }
+        .btn:hover { background: #4752c4; transform: translateY(-2px); }
+        ul { padding-left: 20px; margin: 0; }
+        li { margin-bottom: 10px; }
+        footer { text-align: center; margin-top: 40px; color: #64748b; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
+<div class="container">
     <header>
         <h1>INVICTUS MC</h1>
-        <p style="font-size: 1.2rem; color: #a496be;">Welcome to the Unconquered Community</p>
-        <!-- Click to copy feature built-in! -->
-        <div class="server-ip" onclick="copyIP()">IP: ://invictusmc.com</div>
+        <p style="color: #94a3b8;">Welcome to the Unconquered Community!</p>
     </header>
 
-    <div class="container">
-        <h2>Why Play On Invictus?</h2>
-        <div class="features">
-            <div class="card">
-                <h3>Custom Recipes</h3>
-                <p>Unlock completely unique craftable items, powerful gear, and custom progression systems tailored for our active community.</p>
-            </div>
-            <div class="card">
-                <h3>Balanced Economy</h3>
-                <p>Earn money, build massive player shops, and trade effortlessly with a steady 30-player economy capped for stable gameplay.</p>
-            </div>
-            <div class="card">
-                <h3>Styled Community</h3>
-                <p>Clean chat formatting, custom purple ranking tags, and organized visual profiles for all active members.</p>
-            </div>
+    <!-- SERVER IP SECTION -->
+    <h2>Server Connection</h2>
+    <p>Click the box below to copy the server address and paste it into your Minecraft client:</p>
+    <div class="ip-box" onclick="copyIP()">185.207.166.79:19006</div>
+
+    <div class="grid">
+        <!-- RECIPES SECTION -->
+        <div class="card">
+            <h2>Custom Recipes</h2>
+            <ul>
+                <li><strong>God Apple:</strong> 8 Gold Blocks + 1 Apple</li>
+                <li><strong>Custom Tool:</strong> 2 Blaze Rods + 3 Diamonds</li>
+                <li><strong>Spawners:</strong> 8 Iron Bars + 1 Nether Star</li>
+            </ul>
         </div>
+
+        <!-- PLAYERS SECTION -->
+        <div class="card">
+            <h2>Active Players & Staff</h2>
+            <ul>
+                <li><strong>Owner:</strong> Nyx0717</li>
+                <li><strong>Player:</strong> CommunityUser</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- DISCORD LINK SECTION -->
+    <div class="card" style="margin-top: 20px; text-align: center;">
+        <h2>Join Our Discord</h2>
+        <p>Connect with the rest of the community, view patch notes, and chat with staff!</p>
+        <a href="https://discord.gg/MBVqtBbSt7" target="_blank" class="btn">Join Discord Server</a>
     </div>
 
     <footer>
         &copy; 2026 Invictus MC. This website is not affiliated with Mojang Studios.
     </footer>
+</div>
 
-    <script>
-        function copyIP() {
-            // Replace this with your actual numerical or domain IP address!
-            navigator.clipboard.writeText("://invictusmc.com");
-            alert("Server IP copied to clipboard! Open Minecraft and paste it.");
-        }
-    </script>
+<script>
+function copyIP() {
+    navigator.clipboard.writeText("185.207.166.79:19006");
+    alert("Server IP copied to clipboard! Open Minecraft and paste it.");
+}
+</script>
 
 </body>
 </html>
